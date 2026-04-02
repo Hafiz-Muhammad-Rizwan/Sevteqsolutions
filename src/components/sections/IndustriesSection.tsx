@@ -7,10 +7,10 @@ import Image from "next/image";
 import { TiltCard } from "@/components/animations/TiltCard";
 
 const INDUSTRY_IMAGES = [
-  "/pexels-freestockpro-12960383.jpg",
-  "/pexels-jakub-pabis-147246622-36169773.jpg",
-  "/pexels-jplenio-1105379.jpg",
-  "/pexels-werner-pfennig-6949525.jpg"
+  "https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Sevteqsolutions/main/public/pexels-freestockpro-12960383.jpg",
+  "https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Sevteqsolutions/main/public/pexels-jakub-pabis-147246622-36169773.jpg",
+  "https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Sevteqsolutions/main/public/pexels-jplenio-1105379.jpg",
+  "https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Sevteqsolutions/main/public/pexels-werner-pfennig-6949525.jpg"
 ];
 
 export function IndustriesSection() {

@@ -5,14 +5,14 @@ import { useState, useEffect } from "react";
 
 const SLIDES = [
   {
-    video: "/video1.mp4",
+    video: "https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Sevteqsolutions/main/public/video1.mp4",
     title: "Empowering businesses through innovation",
     subtitle: "Bridging the gap between business needs and technology by delivering scalable, efficient, and user-centric digital products.",
     buttonText: "OUR MISSION",
     buttonHref: "#about"
   },
   {
-    video: "/video2.mp4",
+    video: "https://raw.githubusercontent.com/Hafiz-Muhammad-Rizwan/Sevteqsolutions/main/public/video2.mp4",
     title: "Your global technology partner",
     subtitle: "We leverage cutting-edge solutions to drive long-term success and foster innovation across all industries.",
     buttonText: "OUR VISION",
