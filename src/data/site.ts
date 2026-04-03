@@ -16,26 +16,32 @@ export const navItems: NavItem[] = [
 
 export const capabilities: Capability[] = [
   {
+    id: "custom-software",
     title: "Custom Software Development",
     description: "Building tailored solutions for businesses based on their unique requirements, ensuring flexibility and scalability.",
   },
   {
+    id: "web-development",
     title: "Web Development",
     description: "Designing and developing responsive, high-performance websites and web applications using modern frameworks.",
   },
   {
+    id: "mobile-app",
     title: "Mobile App Development",
     description: "Creating cross-platform and native mobile applications (Android & iOS) with a focus on performance and UX.",
   },
   {
+    id: "ui-ux",
     title: "UI/UX Design",
     description: "Crafting intuitive and visually appealing user interfaces to enhance user engagement and satisfaction.",
   },
   {
+    id: "cloud-solutions",
     title: "Cloud Solutions",
     description: "Providing cloud-based infrastructure, deployment, and maintenance services to ensure reliability.",
   },
   {
+    id: "digital-transformation",
     title: "Digital Transformation",
     description: "Helping businesses transition from traditional processes to digital systems for better efficiency.",
   },

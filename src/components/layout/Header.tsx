@@ -26,10 +26,12 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-white/5 bg-[#0A0A0A]/70 backdrop-blur-xl transition-all duration-300">
       <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6 lg:px-10">
         <Link href="/" className="inline-flex items-center gap-3 group z-50" aria-label="Sevteq Home" onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); setMobileMenuOpen(false); }}>
-          <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-[#2D5BFF] to-[#1a3db3] shadow-[0_0_15px_rgba(45,91,255,0.4)] text-sm font-bold text-white transition-all group-hover:shadow-[0_0_25px_rgba(45,91,255,0.6)] group-hover:scale-105">
-            S
-          </span>
-          <span className="text-2xl font-bold tracking-tight text-white group-hover:text-[#2D5BFF] transition-colors">
+          <img 
+            src="/Sevteq%20Logo.jpeg" 
+            alt="Sevteq Logo" 
+            className="h-10 lg:h-12 w-auto object-contain rounded-lg transition-all group-hover:scale-105 shadow-[0_0_15px_rgba(45,91,255,0.2)] group-hover:shadow-[0_0_25px_rgba(45,91,255,0.4)]" 
+          />
+          <span className="text-2xl font-bold tracking-tight text-white group-hover:text-[#2D5BFF] transition-colors hidden sm:block">
             Sevteq
           </span>
         </Link>

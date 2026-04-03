@@ -29,16 +29,16 @@ export function ContactSection() {
 
           <div className="flex flex-wrap justify-center gap-6 pt-6">
             <a
-              href="mailto:contact@sevteq.com"
+              href="mailto:sevteqsolutions@outlook.com"
               className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-[#1a3db3] to-[#2D5BFF] px-10 py-4 text-sm font-bold text-white transition-all hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(45,91,255,0.4)]"
             >
               Email Us
             </a>
             <a
-              href="tel:+1234567890"
+              href="tel:+17033011006"
               className="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/5 px-10 py-4 text-sm font-bold text-white transition-colors hover:bg-white/10"
             >
-              +1 (234) 567-890
+              +1 (703) 301-1006
             </a>
           </div>
         </div>

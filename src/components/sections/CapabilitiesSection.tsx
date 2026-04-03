@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { capabilities } from "@/data/site";
 import { ArrowRight } from "lucide-react";
@@ -40,7 +41,7 @@ export function CapabilitiesSection() {
               className={isWide ? "md:col-span-2" : "md:col-span-1"}
             >
               <TiltCard perspective={1200} className="h-full">
-                <article className="group relative overflow-hidden flex flex-col rounded-3xl border border-white/10 bg-[#0A0A0A]/50 p-8 md:p-10 min-h-[280px] h-full transition-all duration-300 hover:border-white/30 glow-hover">
+                <Link href={`/projects#${capability.id}`} className="group relative overflow-hidden flex flex-col rounded-3xl border border-white/10 bg-[#0A0A0A]/50 p-8 md:p-10 min-h-[280px] h-full transition-all duration-300 hover:border-white/30 glow-hover block">
 
                   {/* Persistent Glowing Mesh Gradient */}
                   <div className={`absolute -top-16 -left-16 w-80 h-80 rounded-full bg-gradient-to-br ${bgGradient} blur-[60px] opacity-80 group-hover:opacity-100 group-hover:scale-125 transition-all duration-700 pointer-events-none z-0`} />
@@ -54,7 +55,7 @@ export function CapabilitiesSection() {
                     <h3 className="text-2xl font-bold text-white mb-4 pr-12 tracking-wide block">{capability.title}</h3>
                     <p className="leading-relaxed text-white/80">{capability.description}</p>
                   </div>
-                </article>
+                </Link>
               </TiltCard>
             </motion.div>
           );

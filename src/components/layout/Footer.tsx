@@ -15,10 +15,12 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2 flex flex-col items-start">
             <Link href="/" className="inline-flex items-center gap-3 group" aria-label="Sevteq Home">
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-[#2D5BFF] to-[#1a3db3] shadow-[0_0_15px_rgba(45,91,255,0.4)] text-sm font-bold text-white transition-all group-hover:shadow-[0_0_25px_rgba(45,91,255,0.6)]">
-                S
-              </span>
-              <span className="text-2xl font-bold tracking-tight text-white group-hover:text-[#2D5BFF] transition-colors">
+              <img 
+                src="/Sevteq%20Logo.jpeg" 
+                alt="Sevteq Logo" 
+                className="h-10 lg:h-12 w-auto object-contain rounded-lg transition-all group-hover:scale-105 shadow-[0_0_15px_rgba(45,91,255,0.2)] group-hover:shadow-[0_0_25px_rgba(45,91,255,0.4)]" 
+              />
+              <span className="text-2xl font-bold tracking-tight text-white group-hover:text-[#2D5BFF] transition-colors hidden sm:block">
                 Sevteq
               </span>
             </Link>
@@ -43,8 +45,11 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             <h4 className="text-lg font-semibold text-white tracking-wide">Connect</h4>
             <div className="flex flex-col gap-3 text-sm text-[#94A3B8]">
-              <p>Email: <a href="mailto:contact@sevteq.com" className="hover:text-white transition-colors">contact@sevteq.com</a></p>
-              <p>Global Headquarters<br />San Francisco, CA</p>
+              <p>Email: <a href="mailto:sevteqsolutions@outlook.com" className="hover:text-[#2D5BFF] transition-colors">sevteqsolutions@outlook.com</a></p>
+              <p>Phone: <a href="tel:+17033011006" className="hover:text-[#2D5BFF] transition-colors">+1 (703) 301-1006</a></p>
+              <a href="https://www.linkedin.com/company/sevteq/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="hover:text-[#2D5BFF] transition-colors">
+                LinkedIn Profile
+              </a>
               <a href="#contact" className="mt-2 inline-block text-[#2D5BFF] hover:text-white font-medium transition-colors">
                 Start a project →
               </a>
