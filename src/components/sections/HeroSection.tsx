@@ -71,7 +71,7 @@ export function HeroSection() {
         {/* Layered overlays */}
         <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.45)", zIndex: 1 }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.35) 60%, transparent 100%)", zIndex: 2 }} />
-        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "200px", background: "linear-gradient(to top, #000 0%, transparent 100%)", zIndex: 3 }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "200px", background: "linear-gradient(to top, #04070d 0%, transparent 100%)", zIndex: 3 }} />
       </div>
 
       {/* ── Primary accent line top-right ── */}

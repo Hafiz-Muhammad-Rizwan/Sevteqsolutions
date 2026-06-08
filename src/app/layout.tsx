@@ -22,7 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} antialiased`}>
-      <body className="flex flex-col bg-[#0A0A0A] text-white font-sans selection:bg-[#2D5BFF]/30 min-h-screen">
+      <body className="flex flex-col bg-[#04070d] text-white font-sans selection:bg-[var(--color-primary-glow)] min-h-screen relative">
+        <div className="cinematic-noise" />
         <SmoothScroller>{children}</SmoothScroller>
       </body>
     </html>

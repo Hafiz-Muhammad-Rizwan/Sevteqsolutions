@@ -4,29 +4,127 @@ import { motion } from "framer-motion";
 import { capabilities } from "@/data/site";
 import { TiltCard } from "@/components/animations/TiltCard";
 
-// Fusion AI accent colors — blue primary + orange secondary accent
-const CARD_ACCENTS = [
-  { color: "#1f77f6", glow: "rgba(31,119,246,0.18)" },
-  { color: "#da4e24", glow: "rgba(218,78,36,0.18)" },
-  { color: "#1f77f6", glow: "rgba(31,119,246,0.18)" },
-  { color: "#da4e24", glow: "rgba(218,78,36,0.18)" },
-  { color: "#1f77f6", glow: "rgba(31,119,246,0.18)" },
-  { color: "#da4e24", glow: "rgba(218,78,36,0.18)" },
-];
+// Beautiful custom dual SVGs for the Landio-style capsule badges
+const DOUBLE_ICONS = [
+  // 1. Workflow Automation: Curve arrow | Smart head outline
+  <div key="workflow" className="flex items-center gap-3 px-3 py-1.5">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
+      <polyline points="18 8 22 8 22 12" />
+      <path d="M2 20c0-6 4-10 10-10h10" />
+    </svg>
+    <div className="w-[1px] h-4 bg-white/10" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
+      <path d="M16 18c0-3.5-3-6-6-6s-6 2.5-6 6" />
+      <circle cx="10" cy="6" r="4" />
+      <circle cx="10" cy="6" r="1" fill="currentColor" />
+    </svg>
+  </div>,
 
-const ICONS = [
-  // Code brackets
-  <svg key="code" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>,
-  // Globe
-  <svg key="globe" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
-  // Smartphone
-  <svg key="phone" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>,
-  // Palette
-  <svg key="palette" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>,
-  // Cloud
-  <svg key="cloud" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>,
-  // Zap
-  <svg key="zap" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
+  // 2. Custom AI Solutions: Tuning Sliders | Settings Gear
+  <div key="solutions" className="flex items-center gap-3 px-3 py-1.5">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
+      <line x1="4" y1="21" x2="4" y2="14" />
+      <line x1="4" y1="10" x2="4" y2="3" />
+      <line x1="12" y1="21" x2="12" y2="12" />
+      <line x1="12" y1="8" x2="12" y2="3" />
+      <line x1="20" y1="21" x2="20" y2="16" />
+      <line x1="20" y1="12" x2="20" y2="3" />
+      <circle cx="4" cy="12" r="1.5" />
+      <circle cx="12" cy="10" r="1.5" />
+      <circle cx="20" cy="14" r="1.5" />
+    </svg>
+    <div className="w-[1px] h-4 bg-white/10" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
+      <circle cx="12" cy="12" r="3" />
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+    </svg>
+  </div>,
+
+  // 3. AI Assistant: Robot face | Sparkles
+  <div key="assistant" className="flex items-center gap-3 px-3 py-1.5">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
+      <rect x="3" y="11" width="18" height="10" rx="2" />
+      <circle cx="8" cy="16" r="1.5" />
+      <circle cx="16" cy="16" r="1.5" />
+      <path d="M12 6v5" />
+      <path d="M8 6h8" />
+    </svg>
+    <div className="w-[1px] h-4 bg-white/10" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
+      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+    </svg>
+  </div>,
+
+  // 4. Sales & Marketing: Four arrows | Pie chart
+  <div key="sales" className="flex items-center gap-3 px-3 py-1.5">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
+      <polyline points="15 3 21 3 21 9" />
+      <polyline points="9 21 3 21 3 15" />
+      <line x1="21" y1="3" x2="14" y2="10" />
+      <line x1="3" y1="21" x2="10" y2="14" />
+    </svg>
+    <div className="w-[1px] h-4 bg-white/10" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
+      <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+      <path d="M22 12A10 10 0 0 0 12 2v10z" />
+    </svg>
+  </div>,
+
+  // 5. Performance Tracking: Line trend | Bar chart
+  <div key="performance" className="flex items-center gap-3 px-3 py-1.5">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
+      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+      <polyline points="16 7 22 7 22 13" />
+    </svg>
+    <div className="w-[1px] h-4 bg-white/10" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
+      <line x1="18" y1="20" x2="18" y2="10" />
+      <line x1="12" y1="20" x2="12" y2="4" />
+      <line x1="6" y1="20" x2="6" y2="14" />
+    </svg>
+  </div>,
+
+  // 6. Seamless Interactions: Plug | Database
+  <div key="interactions" className="flex items-center gap-3 px-3 py-1.5">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
+      <path d="M15 5v2" />
+      <path d="M9 5v2" />
+      <path d="M6 7h12v4a6 6 0 0 1-6 6H12a6 6 0 0 1-6-6V7Z" />
+      <path d="M12 17v4" />
+    </svg>
+    <div className="w-[1px] h-4 bg-white/10" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
+      <ellipse cx="12" cy="5" rx="9" ry="3" />
+      <path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+      <path d="M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6" />
+    </svg>
+  </div>,
+
+  // 7. Mobile Web Development: Smartphone | Globe
+  <div key="mobileweb" className="flex items-center gap-3 px-3 py-1.5">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
+      <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+      <line x1="12" y1="18" x2="12.01" y2="18" />
+    </svg>
+    <div className="w-[1px] h-4 bg-white/10" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="2" y1="12" x2="22" y2="12" />
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+    </svg>
+  </div>,
+
+  // 8. DevOps & Cloud Automation: Cloud | Terminal
+  <div key="devops" className="flex items-center gap-3 px-3 py-1.5">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
+      <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+    </svg>
+    <div className="w-[1px] h-4 bg-white/10" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
+      <polyline points="4 17 10 11 4 5" />
+      <line x1="12" y1="19" x2="20" y2="19" />
+    </svg>
+  </div>,
 ];
 
 export function CapabilitiesSection() {
@@ -37,16 +135,34 @@ export function CapabilitiesSection() {
         position: "relative",
         width: "100%",
         padding: "100px 0",
-        background: "#000000",
+        background: "#04070d",
         overflow: "hidden",
       }}
     >
       {/* Background glow orbs */}
-      <div style={{ position: "absolute", top: "10%", left: "-200px", width: "500px", height: "500px", borderRadius: "50%", background: "rgba(31,119,246,0.06)", filter: "blur(100px)", pointerEvents: "none" }} />
-      <div style={{ position: "absolute", bottom: "10%", right: "-200px", width: "400px", height: "400px", borderRadius: "50%", background: "rgba(218,78,36,0.06)", filter: "blur(100px)", pointerEvents: "none" }} />
+      <div
+        className="glow-orb"
+        style={{
+          top: "15%",
+          right: "-100px",
+          width: "500px",
+          height: "500px",
+          background: "radial-gradient(circle, rgba(148, 209, 255, 0.08) 0%, transparent 70%)",
+        }}
+      />
+      <div
+        className="glow-orb"
+        style={{
+          bottom: "10%",
+          left: "-150px",
+          width: "450px",
+          height: "450px",
+          background: "radial-gradient(circle, rgba(148, 209, 255, 0.06) 0%, transparent 70%)",
+        }}
+      />
 
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 40px" }}>
-        {/* Section heading */}
+        {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,59 +170,61 @@ export function CapabilitiesSection() {
           transition={{ duration: 0.6 }}
           style={{ maxWidth: "660px", marginBottom: "64px" }}
         >
-          <div style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-            border: "1px solid #191919",
-            borderRadius: "999px",
-            padding: "6px 16px",
-            fontSize: "11px",
-            fontWeight: 500,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: "#999",
-            background: "#0f0f0f",
-            fontFamily: "'General Sans','Inter',sans-serif",
-            marginBottom: "20px",
-          }}>
-            What We Do
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              border: "1px solid rgba(207, 231, 255, 0.08)",
+              borderRadius: "999px",
+              padding: "6px 16px",
+              fontSize: "11px",
+              fontWeight: 500,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "var(--color-primary)",
+              background: "rgba(148, 209, 255, 0.08)",
+              fontFamily: "'Inter', sans-serif",
+              marginBottom: "20px",
+            }}
+          >
+            Services
           </div>
-          <h2 style={{
-            fontSize: "clamp(2rem, 3.5vw, 3.4rem)",
-            fontWeight: 500,
-            color: "#fff",
-            fontFamily: "'General Sans','Inter',sans-serif",
-            lineHeight: 1.12,
-            letterSpacing: "-0.02em",
-            marginBottom: "16px",
-          }}>
+          <h2
+            style={{
+              fontSize: "clamp(2.2rem, 3.8vw, 3.2rem)",
+              fontWeight: 500,
+              color: "#ffffff",
+              fontFamily: "'Inter', sans-serif",
+              lineHeight: 1.15,
+              letterSpacing: "-1.2px",
+              marginBottom: "16px",
+            }}
+          >
             Integrated capabilities for ambitious organizations
           </h2>
-          <p style={{
-            fontSize: "18px",
-            lineHeight: 1.65,
-            color: "#999",
-            fontFamily: "'General Sans','Inter',sans-serif",
-          }}>
+          <p
+            style={{
+              fontSize: "18px",
+              lineHeight: 1.65,
+              color: "var(--color-text-muted)",
+              fontFamily: "'Inter', sans-serif",
+            }}
+          >
             We combine strategic clarity with technical depth to help enterprises transform confidently at scale.
           </p>
         </motion.div>
 
-        {/* Cards grid */}
+        {/* Cards Grid */}
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "16px",
-            gridAutoRows: "minmax(260px, auto)",
+            gap: "20px",
           }}
           className="capabilities-grid"
         >
           {capabilities.map((capability, index) => {
-            const isWide = [0, 3, 4].includes(index);
-            const accent = CARD_ACCENTS[index % CARD_ACCENTS.length];
-
             return (
               <motion.div
                 key={capability.title}
@@ -114,108 +232,81 @@ export function CapabilitiesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.55, delay: index * 0.08 }}
-                style={{ gridColumn: isWide ? "span 2" : "span 1" }}
-                className={isWide ? "card-wide" : ""}
               >
-                <TiltCard perspective={1200} className="h-full">
+                <TiltCard perspective={1500} className="h-full">
                   <article
                     style={{
                       position: "relative",
                       overflow: "hidden",
-                      borderRadius: "16px",
-                      border: "1px solid #191919",
-                      background: "#0a0a0a",
-                      padding: "36px",
-                      minHeight: "260px",
+                      borderRadius: "20px",
+                      border: "1px solid rgba(207, 231, 255, 0.05)",
+                      background: "#10131c",
+                      padding: "48px 32px",
+                      minHeight: "310px",
                       height: "100%",
                       display: "flex",
                       flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
                       justifyContent: "space-between",
                       cursor: "pointer",
                       transition: "border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease",
-                      boxShadow: "rgba(0,0,0,0.17) 0px 2px 12px 0px",
+                      boxShadow: "var(--shadow-chromatic-4)",
                     }}
                     onMouseEnter={(e) => {
                       const el = e.currentTarget as HTMLElement;
-                      el.style.borderColor = accent.color + "55";
-                      el.style.boxShadow = `0 0 32px ${accent.glow}, rgba(0,0,0,0.3) 0px 8px 24px`;
+                      el.style.borderColor = "rgba(148, 209, 255, 0.25)";
+                      el.style.boxShadow = "var(--shadow-card-elevated), 0 0 25px rgba(148, 209, 255, 0.08)";
                       el.style.transform = "translateY(-4px)";
                     }}
                     onMouseLeave={(e) => {
                       const el = e.currentTarget as HTMLElement;
-                      el.style.borderColor = "#191919";
-                      el.style.boxShadow = "rgba(0,0,0,0.17) 0px 2px 12px 0px";
+                      el.style.borderColor = "rgba(207, 231, 255, 0.05)";
+                      el.style.boxShadow = "var(--shadow-chromatic-4)";
                       el.style.transform = "translateY(0)";
                     }}
                   >
-                    {/* Subtle mesh glow */}
-                    <div style={{
-                      position: "absolute",
-                      top: "-60px",
-                      right: "-60px",
-                      width: "200px",
-                      height: "200px",
-                      borderRadius: "50%",
-                      background: accent.glow,
-                      filter: "blur(60px)",
-                      opacity: 0.7,
-                      pointerEvents: "none",
-                    }} />
-
-                    {/* Top row: icon badge */}
-                    <div style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      width: "44px",
-                      height: "44px",
-                      borderRadius: "12px",
-                      background: accent.glow,
-                      border: `1px solid ${accent.color}33`,
-                      color: accent.color,
-                      marginBottom: "auto",
-                    }}>
-                      {ICONS[index % ICONS.length]}
+                    {/* Top capsule badge with double icons */}
+                    <div
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        borderRadius: "100px",
+                        background: "rgba(4, 7, 13, 0.6)",
+                        border: "1px solid rgba(207, 231, 255, 0.08)",
+                        marginBottom: "28px",
+                      }}
+                    >
+                      {DOUBLE_ICONS[index % DOUBLE_ICONS.length]}
                     </div>
 
                     {/* Content */}
-                    <div style={{ position: "relative", zIndex: 1 }}>
-                      <h3 style={{
-                        fontSize: "20px",
-                        fontWeight: 500,
-                        color: "#fff",
-                        fontFamily: "'General Sans','Inter',sans-serif",
-                        marginBottom: "10px",
-                        lineHeight: 1.3,
-                        letterSpacing: "-0.01em",
-                      }}>
+                    <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                      <h3
+                        style={{
+                          fontSize: "20px",
+                          fontWeight: 500,
+                          color: "#ffffff",
+                          fontFamily: "'Inter', sans-serif",
+                          marginBottom: "12px",
+                          lineHeight: 1.3,
+                          letterSpacing: "-0.5px",
+                        }}
+                      >
                         {capability.title}
                       </h3>
-                      <p style={{
-                        fontSize: "15px",
-                        lineHeight: 1.6,
-                        color: "#999",
-                        fontFamily: "'General Sans','Inter',sans-serif",
-                      }}>
+                      <p
+                        style={{
+                          fontSize: "14.5px",
+                          lineHeight: 1.6,
+                          color: "var(--color-text-muted)",
+                          fontFamily: "'Inter', sans-serif",
+                          maxWidth: "280px",
+                        }}
+                      >
                         {capability.description}
                       </p>
-                    </div>
-
-                    {/* Corner arrow */}
-                    <div style={{
-                      position: "absolute",
-                      top: "28px",
-                      right: "28px",
-                      width: "32px",
-                      height: "32px",
-                      borderRadius: "50%",
-                      border: "1px solid #191919",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "#555",
-                    }}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
                     </div>
                   </article>
                 </TiltCard>
@@ -226,13 +317,12 @@ export function CapabilitiesSection() {
       </div>
 
       <style>{`
-        @media (max-width: 900px) {
+        @media (max-width: 960px) {
           .capabilities-grid { grid-template-columns: 1fr 1fr !important; }
-          .card-wide { grid-column: span 2 !important; }
         }
         @media (max-width: 640px) {
           .capabilities-grid { grid-template-columns: 1fr !important; }
-          .card-wide { grid-column: span 1 !important; }
+          article { padding: 40px 24px !important; min-height: 280px !important; }
         }
       `}</style>
     </section>

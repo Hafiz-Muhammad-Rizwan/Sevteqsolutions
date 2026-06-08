@@ -7,37 +7,45 @@ import {
 } from "@/types/site";
 
 export const navItems: NavItem[] = [
-  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Industries", href: "#industries" },
-  { label: "Insights", href: "#insights" },
+  { label: "Process", href: "#process" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Blog", href: "#insights" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const capabilities: Capability[] = [
   {
-    title: "Custom Software Development",
-    description: "Building tailored solutions for businesses based on their unique requirements, ensuring flexibility and scalability.",
+    title: "Workflow Automation",
+    description: "Automate complex business processes to boost speed, clarity, and efficiency.",
   },
   {
-    title: "Web Development",
-    description: "Designing and developing responsive, high-performance websites and web applications using modern frameworks.",
+    title: "Custom AI Solutions",
+    description: "Build tailored AI systems that align with your business goals and challenges.",
   },
   {
-    title: "Mobile App Development",
-    description: "Creating cross-platform and native mobile applications (Android & iOS) with a focus on performance and UX.",
+    title: "AI Assistant",
+    description: "Deploy intelligent virtual agents to streamline tasks.",
   },
   {
-    title: "UI/UX Design",
-    description: "Crafting intuitive and visually appealing user interfaces to enhance user engagement and satisfaction.",
+    title: "Sales & Marketing",
+    description: "Optimize customer acquisition, conversion, and retention with data-driven workflows.",
   },
   {
-    title: "Cloud Solutions",
-    description: "Providing cloud-based infrastructure, deployment, and maintenance services to ensure reliability.",
+    title: "Performance Tracking",
+    description: "Monitor, visualize, and report key business metrics in real-time.",
   },
   {
-    title: "Digital Transformation",
-    description: "Helping businesses transition from traditional processes to digital systems for better efficiency.",
+    title: "Seamless Interactions",
+    description: "Integrate tools, APIs, and databases for friction-free data flow.",
+  },
+  {
+    title: "Mobile Web Development",
+    description: "Crafting high-performance, responsive web applications optimized for all mobile platforms.",
+  },
+  {
+    title: "DevOps & Cloud Automation",
+    description: "Automating software delivery, deployment pipelines, and scaling secure cloud infrastructure.",
   },
 ];
 

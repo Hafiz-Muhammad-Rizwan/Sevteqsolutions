@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
 export function Header() {
-  const [activeItem, setActiveItem] = useState("About");
+  const [activeItem, setActiveItem] = useState("Services");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string, label: string) => {
@@ -27,10 +27,10 @@ export function Header() {
         position: "sticky",
         top: 0,
         zIndex: 50,
-        background: "rgba(0,0,0,0.80)",
+        background: "rgba(4, 7, 13, 0.85)",
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
-        borderBottom: "1px solid #191919",
+        borderBottom: "1px solid rgba(207, 231, 255, 0.06)",
         transition: "all 0.3s ease",
       }}
     >
@@ -50,33 +50,26 @@ export function Header() {
           href="/"
           aria-label="Sevteq Home"
           onClick={() => { window.scrollTo({ top: 0, behavior: "smooth" }); setMobileMenuOpen(false); }}
-          style={{ display: "inline-flex", alignItems: "center", gap: "10px", textDecoration: "none" }}
+          style={{ display: "inline-flex", alignItems: "center", gap: "12px", textDecoration: "none" }}
         >
-          <span
+          <img
+            src="/Sevteq Logo.jpeg"
+            alt="Sevteq"
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
               width: "36px",
               height: "36px",
-              borderRadius: "10px",
-              background: "linear-gradient(135deg, #1f77f6, #0d5fd4)",
-              boxShadow: "0 0 18px rgba(31,119,246,0.45)",
-              fontSize: "14px",
-              fontWeight: 700,
-              color: "#fff",
-              fontFamily: "'General Sans','Inter',sans-serif",
+              borderRadius: "8px",
+              objectFit: "cover",
+              border: "1px solid rgba(207, 231, 255, 0.15)",
             }}
-          >
-            S
-          </span>
+          />
           <span
             style={{
-              fontSize: "20px",
+              fontSize: "21px",
               fontWeight: 500,
-              color: "#fff",
-              fontFamily: "'General Sans','Inter',sans-serif",
-              letterSpacing: "-0.02em",
+              color: "#ffffff",
+              fontFamily: "'Inter', sans-serif",
+              letterSpacing: "-0.6px",
             }}
           >
             Sevteq
@@ -89,10 +82,10 @@ export function Header() {
             display: "none",
             alignItems: "center",
             gap: "4px",
-            padding: "6px",
+            padding: "4px",
             borderRadius: "999px",
-            background: "#0f0f0f",
-            border: "1px solid #191919",
+            background: "#10131c",
+            border: "1px solid rgba(207, 231, 255, 0.05)",
           }}
           className="header-nav"
         >
@@ -108,8 +101,8 @@ export function Header() {
                   padding: "8px 18px",
                   fontSize: "14px",
                   fontWeight: 500,
-                  fontFamily: "'General Sans','Inter',sans-serif",
-                  color: isActive ? "#fff" : "#999",
+                  fontFamily: "'Inter', sans-serif",
+                  color: isActive ? "#ffffff" : "#b8c7d9",
                   textDecoration: "none",
                   borderRadius: "999px",
                   transition: "color 0.2s ease",
@@ -122,8 +115,8 @@ export function Header() {
                       position: "absolute",
                       inset: 0,
                       borderRadius: "999px",
-                      background: "rgba(31,119,246,0.15)",
-                      border: "1px solid rgba(31,119,246,0.3)",
+                      background: "rgba(148, 209, 255, 0.1)",
+                      border: "1px solid rgba(148, 209, 255, 0.25)",
                     }}
                     transition={{ type: "spring", stiffness: 320, damping: 28 }}
                   />
@@ -134,7 +127,7 @@ export function Header() {
           })}
         </nav>
 
-        {/* CTA Button */}
+        {/* CTA Button: Sparkle "Talk to Us" */}
         <div className="header-cta" style={{ display: "none" }}>
           <a
             href="#contact"
@@ -143,26 +136,42 @@ export function Header() {
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
-              background: "transparent",
-              color: "#fff",
-              border: "1px solid #fff",
-              borderRadius: "999px",
-              padding: "10px 24px",
+              background: "#10131c",
+              color: "#ffffff",
+              border: "1px solid rgba(207, 231, 255, 0.12)",
+              borderRadius: "10px",
+              padding: "10px 22px",
               fontSize: "14px",
               fontWeight: 500,
-              fontFamily: "'General Sans','Inter',sans-serif",
+              fontFamily: "'Inter', sans-serif",
               textDecoration: "none",
-              transition: "all 0.25s ease",
+              transition: "all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1)",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "#1f77f6";
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1f77f6";
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = "#94d1ff";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 15px rgba(148, 209, 255, 0.2)";
+              (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-1px)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = "#fff";
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(207, 231, 255, 0.12)";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
+              (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
             }}
           >
+            <svg
+              className="animate-sparkle"
+              style={{ marginRight: "8px", color: "#94d1ff" }}
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+            </svg>
             Talk to Us
           </a>
         </div>
@@ -173,7 +182,7 @@ export function Header() {
           style={{
             background: "none",
             border: "none",
-            color: "#fff",
+            color: "#ffffff",
             cursor: "pointer",
             padding: "8px",
           }}
@@ -197,9 +206,9 @@ export function Header() {
               top: "72px",
               left: 0,
               width: "100%",
-              background: "rgba(0,0,0,0.96)",
+              background: "rgba(4, 7, 13, 0.98)",
               backdropFilter: "blur(24px)",
-              borderBottom: "1px solid #191919",
+              borderBottom: "1px solid rgba(207, 231, 255, 0.06)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -216,13 +225,13 @@ export function Header() {
                 style={{
                   fontSize: "18px",
                   fontWeight: 500,
-                  color: "#999",
+                  color: "#b8c7d9",
                   textDecoration: "none",
-                  fontFamily: "'General Sans','Inter',sans-serif",
+                  fontFamily: "'Inter', sans-serif",
                   transition: "color 0.2s ease",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#999")}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#b8c7d9")}
               >
                 {item.label}
               </a>
@@ -235,14 +244,18 @@ export function Header() {
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                background: "#1f77f6",
-                color: "#fff",
-                borderRadius: "999px",
+                background: "var(--color-primary)",
+                color: "#04070d",
+                borderRadius: "10px",
                 padding: "12px 32px",
-                fontSize: "14px",
+                fontSize: "15px",
                 fontWeight: 500,
-                fontFamily: "'General Sans','Inter',sans-serif",
+                fontFamily: "'Inter', sans-serif",
                 textDecoration: "none",
+                width: "100%",
+                maxWidth: "280px",
+                textAlign: "center",
+                boxShadow: "0 4px 14px rgba(148, 209, 255, 0.25)",
               }}
             >
               Talk to Us
