@@ -1,0 +1,247 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════
+   FUSION AI DESIGN SYSTEM — GLOBAL TOKENS
+   ═══════════════════════════════════════════ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/* General Sans via @font-face (fallback to Inter) */
+@font-face {
+  font-family: "General Sans";
+  src: local("Inter"), local("sans-serif");
+  font-weight: 400 700;
+  font-style: normal;
+}
+
+:root {
+  /* ── Core Palette ── */
+  --color-bg: #000000;
+  --color-bg-secondary: #0d0d0d;
+  --color-surface: #000000;
+  --color-surface-raised: #111111;
+  --color-surface-card: #0f0f0f;
+
+  /* ── Accents ── */
+  --color-primary: #1f77f6;
+  --color-primary-glow: rgba(31, 119, 246, 0.35);
+  --color-primary-subtle: rgba(31, 119, 246, 0.12);
+  --color-secondary: #da4e24;
+  --color-secondary-glow: rgba(218, 78, 36, 0.30);
+
+  /* ── Text ── */
+  --color-text: #ffffff;
+  --color-text-muted: #999999;
+  --color-text-dim: #555555;
+
+  /* ── Borders ── */
+  --color-border: #191919;
+  --color-border-light: rgba(255, 255, 255, 0.07);
+  --color-border-accent: rgba(31, 119, 246, 0.25);
+
+  /* ── Shadows ── */
+  --shadow-low: rgba(0,0,0,0.15) 0px 2px 2px 0px, rgb(0,0,0) 0px 0px 0px 1px inset;
+  --shadow-card: rgba(0,0,0,0.17) 0px 0.6px 1.6px -1.5px, rgba(0,0,0,0.14) 0px 2.2px 5.8px -3px, rgba(0,0,0,0.10) 0px 10px 24px -4px;
+  --shadow-accent: 0 0 24px var(--color-primary-glow);
+  --shadow-secondary: 0 0 20px var(--color-secondary-glow);
+
+  /* ── Spacing ── */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 64px;
+  --space-7: 100px;
+
+  /* ── Radius ── */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --radius-card: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+}
+
+@theme inline {
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text);
+  --font-sans: "General Sans", "Inter", sans-serif;
+}
+
+/* ─── Base Reset ─── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "General Sans", "Inter", sans-serif;
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Typography ─── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "General Sans", "Inter", sans-serif;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+/* ─── Utility: Gradient Text ─── */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #999999 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, #1f77f6 0%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Fusion Card ─── */
+.fusion-card {
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.fusion-card:hover {
+  border-color: var(--color-border-accent);
+  box-shadow: var(--shadow-card), var(--shadow-accent);
+  transform: translateY(-3px);
+}
+
+/* ─── Glass Panel ─── */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border-light);
+}
+
+/* ─── Glow Hover ─── */
+.glow-hover {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.glow-hover:hover {
+  box-shadow: var(--shadow-accent);
+  border-color: var(--color-border-accent);
+}
+
+/* ─── Primary Button ─── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "General Sans", "Inter", sans-serif;
+  cursor: pointer;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background: #3d8af7;
+  box-shadow: var(--shadow-accent);
+  transform: translateY(-1px);
+}
+
+/* ─── Outline Button ─── */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "General Sans", "Inter", sans-serif;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.2);
+  transform: translateY(-1px);
+}
+
+/* ─── Eyebrow Tag ─── */
+.eyebrow-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  background: var(--color-surface-raised);
+}
+
+/* ─── Metric Card ─── */
+.metric-card {
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.metric-card:hover {
+  border-color: var(--color-border-accent);
+  box-shadow: var(--shadow-accent);
+}
+
+/* ─── Section Divider ─── */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0;
+}
+
+/* ─── Animated Glow Orb ─── */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #191919; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #1f77f6; }
+
+/* ─── Selection ─── */
+::selection { background: rgba(31,119,246,0.3); color: #fff; }
+
+/* ─── Focus Ring ─── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
