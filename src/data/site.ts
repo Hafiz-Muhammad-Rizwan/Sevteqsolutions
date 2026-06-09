@@ -7,45 +7,28 @@ import {
 } from "@/types/site";
 
 export const navItems: NavItem[] = [
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Blog", href: "#insights" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/#services" },
+  { label: "Process", href: "/#process" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const capabilities: Capability[] = [
   {
-    title: "Workflow Automation",
-    description: "Automate complex business processes to boost speed, clarity, and efficiency.",
+    title: "Native & Cross-Platform Mobile Development",
+    description: "Crafting high-performance, fluid mobile applications using Flutter and React Native. We focus on stunning UI execution, offline-first architectures, and cross-platform native performance for iOS and Android.",
   },
   {
-    title: "Custom AI Solutions",
-    description: "Build tailored AI systems that align with your business goals and challenges.",
+    title: "Full-Stack Web Ecosystems",
+    description: "Building responsive, ultra-fast web applications using robust modern architectures like React, Node.js, and Spring Boot. Clean code designed for performance and scale.",
   },
   {
-    title: "AI Assistant",
-    description: "Deploy intelligent virtual agents to streamline tasks.",
+    title: "Autonomous AI Agents & Automation",
+    description: "Integrating intelligent AI workflows directly into your business logic. We design custom AI agents, fine-tune custom LLM pipelines, and automate manual business operations to supercharge productivity.",
   },
   {
-    title: "Sales & Marketing",
-    description: "Optimize customer acquisition, conversion, and retention with data-driven workflows.",
-  },
-  {
-    title: "Performance Tracking",
-    description: "Monitor, visualize, and report key business metrics in real-time.",
-  },
-  {
-    title: "Seamless Interactions",
-    description: "Integrate tools, APIs, and databases for friction-free data flow.",
-  },
-  {
-    title: "Mobile Web Development",
-    description: "Crafting high-performance, responsive web applications optimized for all mobile platforms.",
-  },
-  {
-    title: "DevOps & Cloud Automation",
-    description: "Automating software delivery, deployment pipelines, and scaling secure cloud infrastructure.",
+    title: "Cloud Architecture & DevOps Infrastructure",
+    description: "Migrate and scale with complete confidence. We architect secure AWS cloud environments, implement Docker containerization, and build automated GitLab CI/CD pipelines to ensure 99.9% uptime and zero-downtime deployments.",
   },
 ];
 

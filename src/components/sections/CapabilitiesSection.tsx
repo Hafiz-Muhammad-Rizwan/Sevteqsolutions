@@ -5,43 +5,40 @@ import { capabilities } from "@/data/site";
 import { TiltCard } from "@/components/animations/TiltCard";
 
 // Beautiful custom dual SVGs for the Landio-style capsule badges
+// Beautiful custom dual SVGs for the four core pillars
 const DOUBLE_ICONS = [
-  // 1. Workflow Automation: Curve arrow | Smart head outline
-  <div key="workflow" className="flex items-center gap-3 px-3 py-1.5">
+  // 1. Native & Cross-Platform Mobile Development: Smartphone | Layers
+  <div key="mobile" className="flex items-center gap-3 px-3 py-1.5">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
-      <polyline points="18 8 22 8 22 12" />
-      <path d="M2 20c0-6 4-10 10-10h10" />
+      <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+      <line x1="12" y1="18" x2="12.01" y2="18" />
     </svg>
     <div className="w-[1px] h-4 bg-white/10" />
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
-      <path d="M16 18c0-3.5-3-6-6-6s-6 2.5-6 6" />
-      <circle cx="10" cy="6" r="4" />
-      <circle cx="10" cy="6" r="1" fill="currentColor" />
+      <polygon points="12 2 2 7 12 12 22 7 12 2" />
+      <polygon points="2 17 12 22 22 17" />
+      <polygon points="2 12 12 17 22 12" />
     </svg>
   </div>,
 
-  // 2. Custom AI Solutions: Tuning Sliders | Settings Gear
-  <div key="solutions" className="flex items-center gap-3 px-3 py-1.5">
+  // 2. Full-Stack Web Ecosystems: Globe | Server
+  <div key="web" className="flex items-center gap-3 px-3 py-1.5">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
-      <line x1="4" y1="21" x2="4" y2="14" />
-      <line x1="4" y1="10" x2="4" y2="3" />
-      <line x1="12" y1="21" x2="12" y2="12" />
-      <line x1="12" y1="8" x2="12" y2="3" />
-      <line x1="20" y1="21" x2="20" y2="16" />
-      <line x1="20" y1="12" x2="20" y2="3" />
-      <circle cx="4" cy="12" r="1.5" />
-      <circle cx="12" cy="10" r="1.5" />
-      <circle cx="20" cy="14" r="1.5" />
+      <circle cx="12" cy="12" r="10" />
+      <line x1="2" y1="12" x2="22" y2="12" />
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
     </svg>
     <div className="w-[1px] h-4 bg-white/10" />
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
-      <circle cx="12" cy="12" r="3" />
-      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+      <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+      <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+      <line x1="6" y1="6" x2="6.01" y2="6" />
+      <line x1="6" y1="18" x2="6.01" y2="18" />
     </svg>
   </div>,
 
-  // 3. AI Assistant: Robot face | Sparkles
-  <div key="assistant" className="flex items-center gap-3 px-3 py-1.5">
+  // 3. Autonomous AI Agents & Automation: Robot Face | Sparkles
+  <div key="ai" className="flex items-center gap-3 px-3 py-1.5">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
       <rect x="3" y="11" width="18" height="10" rx="2" />
       <circle cx="8" cy="16" r="1.5" />
@@ -55,66 +52,7 @@ const DOUBLE_ICONS = [
     </svg>
   </div>,
 
-  // 4. Sales & Marketing: Four arrows | Pie chart
-  <div key="sales" className="flex items-center gap-3 px-3 py-1.5">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
-      <polyline points="15 3 21 3 21 9" />
-      <polyline points="9 21 3 21 3 15" />
-      <line x1="21" y1="3" x2="14" y2="10" />
-      <line x1="3" y1="21" x2="10" y2="14" />
-    </svg>
-    <div className="w-[1px] h-4 bg-white/10" />
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
-      <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
-      <path d="M22 12A10 10 0 0 0 12 2v10z" />
-    </svg>
-  </div>,
-
-  // 5. Performance Tracking: Line trend | Bar chart
-  <div key="performance" className="flex items-center gap-3 px-3 py-1.5">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
-      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
-      <polyline points="16 7 22 7 22 13" />
-    </svg>
-    <div className="w-[1px] h-4 bg-white/10" />
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
-      <line x1="18" y1="20" x2="18" y2="10" />
-      <line x1="12" y1="20" x2="12" y2="4" />
-      <line x1="6" y1="20" x2="6" y2="14" />
-    </svg>
-  </div>,
-
-  // 6. Seamless Interactions: Plug | Database
-  <div key="interactions" className="flex items-center gap-3 px-3 py-1.5">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
-      <path d="M15 5v2" />
-      <path d="M9 5v2" />
-      <path d="M6 7h12v4a6 6 0 0 1-6 6H12a6 6 0 0 1-6-6V7Z" />
-      <path d="M12 17v4" />
-    </svg>
-    <div className="w-[1px] h-4 bg-white/10" />
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
-      <ellipse cx="12" cy="5" rx="9" ry="3" />
-      <path d="M3 5v6c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-      <path d="M3 11v6c0 1.66 4 3 9 3s9-1.34 9-3v-6" />
-    </svg>
-  </div>,
-
-  // 7. Mobile Web Development: Smartphone | Globe
-  <div key="mobileweb" className="flex items-center gap-3 px-3 py-1.5">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
-      <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-      <line x1="12" y1="18" x2="12.01" y2="18" />
-    </svg>
-    <div className="w-[1px] h-4 bg-white/10" />
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
-      <circle cx="12" cy="12" r="10" />
-      <line x1="2" y1="12" x2="22" y2="12" />
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-    </svg>
-  </div>,
-
-  // 8. DevOps & Cloud Automation: Cloud | Terminal
+  // 4. Cloud Architecture & DevOps Infrastructure: Cloud | Terminal
   <div key="devops" className="flex items-center gap-3 px-3 py-1.5">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
       <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
@@ -225,6 +163,7 @@ export function CapabilitiesSection() {
           className="capabilities-grid"
         >
           {capabilities.map((capability, index) => {
+            const bentoClass = `bento-box-${index + 1}`;
             return (
               <motion.div
                 key={capability.title}
@@ -232,6 +171,7 @@ export function CapabilitiesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.55, delay: index * 0.08 }}
+                className={bentoClass}
               >
                 <TiltCard perspective={1500} className="h-full">
                   <article
@@ -317,11 +257,38 @@ export function CapabilitiesSection() {
       </div>
 
       <style>{`
+        .bento-box-1 {
+          grid-column: span 2;
+        }
+        .bento-box-2 {
+          grid-column: span 1;
+        }
+        .bento-box-3 {
+          grid-column: span 1;
+        }
+        .bento-box-4 {
+          grid-column: span 2;
+        }
         @media (max-width: 960px) {
           .capabilities-grid { grid-template-columns: 1fr 1fr !important; }
+          .bento-box-1 {
+            grid-column: span 2;
+          }
+          .bento-box-2 {
+            grid-column: span 1;
+          }
+          .bento-box-3 {
+            grid-column: span 1;
+          }
+          .bento-box-4 {
+            grid-column: span 2;
+          }
         }
         @media (max-width: 640px) {
           .capabilities-grid { grid-template-columns: 1fr !important; }
+          .bento-box-1, .bento-box-2, .bento-box-3, .bento-box-4 {
+            grid-column: span 1 !important;
+          }
           article { padding: 40px 24px !important; min-height: 280px !important; }
         }
       `}</style>

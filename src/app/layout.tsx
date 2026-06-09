@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: "Sevteq | Enterprise Technology and Digital Transformation",
   description:
     "Sevteq delivers premium enterprise technology services across digital engineering, AI, cloud, and managed operations.",
+  icons: {
+    icon: "/Sevteq Logo.jpeg",
+    shortcut: "/Sevteq Logo.jpeg",
+    apple: "/Sevteq Logo.jpeg",
+  },
 };
 
 import { SmoothScroller } from "@/components/utilities/SmoothScroller";

@@ -4,8 +4,8 @@ import { CapabilitiesSection } from "@/components/sections/CapabilitiesSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { IndustriesSection } from "@/components/sections/IndustriesSection";
-import { InsightsSection } from "@/components/sections/InsightsSection";
 import { MetricsSection } from "@/components/sections/MetricsSection";
+import { PortfolioSection } from "@/components/sections/PortfolioSection";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 
 export default function Home() {
@@ -17,8 +17,8 @@ export default function Home() {
         <WhyChooseUs />
         <CapabilitiesSection />
         <MetricsSection />
+        <PortfolioSection />
         <IndustriesSection />
-        <InsightsSection />
         <ContactSection />
       </main>
       <Footer />

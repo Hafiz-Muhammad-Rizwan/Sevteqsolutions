@@ -11,13 +11,16 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string, label: string) => {
-    e.preventDefault();
-    setActiveItem(label);
-    setMobileMenuOpen(false);
-    const target = document.querySelector(href);
+    const hash = href.includes("#") ? href.substring(href.indexOf("#")) : href;
+    const target = document.querySelector(hash);
     if (target) {
+      e.preventDefault();
+      setActiveItem(label);
+      setMobileMenuOpen(false);
       const top = (target as HTMLElement).offsetTop - 80;
       window.scrollTo({ top, behavior: "smooth" });
+    } else {
+      setMobileMenuOpen(false);
     }
   };
 

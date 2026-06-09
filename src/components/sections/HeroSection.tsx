@@ -6,15 +6,15 @@ import { useState, useEffect } from "react";
 const SLIDES = [
   {
     video: "/video1.mp4",
-    title: "Empowering businesses through innovation",
-    subtitle: "Bridging the gap between business needs and technology by delivering scalable, efficient, and user-centric digital products.",
+    title: "Engineering the Future of Mobile, Web, and Autonomous AI.",
+    subtitle: "We build high-performance mobile and web ecosystems, deploy intelligent AI automation agents, and architect bulletproof DevOps infrastructure that scales seamlessly.",
     buttonText: "OUR MISSION",
     buttonHref: "#about"
   },
   {
     video: "/video2.mp4",
-    title: "Your global technology partner",
-    subtitle: "We leverage cutting-edge solutions to drive long-term success and foster innovation across all industries.",
+    title: "Engineering the Future of Mobile, Web, and Autonomous AI.",
+    subtitle: "We build high-performance mobile and web ecosystems, deploy intelligent AI automation agents, and architect bulletproof DevOps infrastructure that scales seamlessly.",
     buttonText: "OUR VISION",
     buttonHref: "#services"
   }

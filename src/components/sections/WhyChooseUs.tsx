@@ -81,7 +81,7 @@ export function WhyChooseUs() {
           }}
           className="why-choose-us-grid"
         >
-          {/* Card 1: Real-Time Intelligence */}
+          {/* Card 1: Real-Time Intelligence (Updated Text) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -206,7 +206,7 @@ export function WhyChooseUs() {
                   letterSpacing: "-0.5px",
                 }}
               >
-                Real-Time Intelligence
+                Built to Last & Scale
               </h3>
               <p
                 style={{
@@ -217,12 +217,12 @@ export function WhyChooseUs() {
                   margin: "0 auto",
                 }}
               >
-                Access accurate, real-time data to drive smarter decisions
+                We write clean, high-grade code that loads instantly, never crashes, and grows seamlessly with your business.
               </p>
             </div>
           </motion.div>
 
-          {/* Card 2: Measurable Impact */}
+          {/* Card 2: Measurable Impact (Updated Text) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -291,7 +291,7 @@ export function WhyChooseUs() {
                   letterSpacing: "-0.5px",
                 }}
               >
-                Measurable Impact
+                Stunning, Simple UI
               </h3>
               <p
                 style={{
@@ -302,12 +302,12 @@ export function WhyChooseUs() {
                   margin: "0 auto",
                 }}
               >
-                Track performance, uncover insights, and achieve data-backed growth
+                We design software that is elegant, clean, and extremely easy to use, making complex actions feel completely effortless.
               </p>
             </div>
           </motion.div>
 
-          {/* Card 3: Seamless Integration */}
+          {/* Card 3: Seamless Integration (Updated Text) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -382,7 +382,7 @@ export function WhyChooseUs() {
                 <circle cx="50" cy="125" r="5" fill="#10131c" stroke="rgba(148, 209, 255, 0.3)" strokeWidth="1.5" />
                 <circle cx="100" cy="125" r="5" fill="#10131c" stroke="rgba(148, 209, 255, 0.3)" strokeWidth="1.5" />
 
-                {/* Central Node (Sphere with Crescent Moon shape representing Landio-style emblem) */}
+                {/* Central Node */}
                 <g transform="translate(60, 60)">
                   <circle cx="15" cy="15" r="14" fill="#04070d" stroke="var(--color-primary)" strokeWidth="2" />
                   <path
@@ -416,7 +416,7 @@ export function WhyChooseUs() {
                   letterSpacing: "-0.5px",
                 }}
               >
-                Seamless Integration
+                Smart AI & Automation
               </h3>
               <p
                 style={{
@@ -427,7 +427,7 @@ export function WhyChooseUs() {
                   margin: "0 auto",
                 }}
               >
-                Connect tools, teams, and workflows with intelligent automation
+                We connect your favorite tools and build custom AI assistants to automate repetitive manual tasks, saving your team hours of work.
               </p>
             </div>
           </motion.div>
