@@ -30,10 +30,10 @@ export function Header() {
         position: "sticky",
         top: 0,
         zIndex: 50,
-        background: "rgba(4, 7, 13, 0.85)",
+        background: "rgba(248, 249, 250, 0.85)",
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
-        borderBottom: "1px solid rgba(207, 231, 255, 0.06)",
+        borderBottom: "1px solid var(--color-border)",
         transition: "all 0.3s ease",
       }}
     >
@@ -63,14 +63,14 @@ export function Header() {
               height: "36px",
               borderRadius: "8px",
               objectFit: "cover",
-              border: "1px solid rgba(207, 231, 255, 0.15)",
+              border: "1px solid var(--color-border)",
             }}
           />
           <span
             style={{
               fontSize: "21px",
               fontWeight: 500,
-              color: "#ffffff",
+              color: "var(--color-text)",
               fontFamily: "'Inter', sans-serif",
               letterSpacing: "-0.6px",
             }}
@@ -87,8 +87,8 @@ export function Header() {
             gap: "4px",
             padding: "4px",
             borderRadius: "999px",
-            background: "#10131c",
-            border: "1px solid rgba(207, 231, 255, 0.05)",
+            background: "var(--color-bg-secondary)",
+            border: "1px solid var(--color-border)",
           }}
           className="header-nav"
         >
@@ -105,7 +105,7 @@ export function Header() {
                   fontSize: "14px",
                   fontWeight: 500,
                   fontFamily: "'Inter', sans-serif",
-                  color: isActive ? "#ffffff" : "#b8c7d9",
+                  color: isActive ? "var(--color-text)" : "var(--color-text-muted)",
                   textDecoration: "none",
                   borderRadius: "999px",
                   transition: "color 0.2s ease",
@@ -118,8 +118,8 @@ export function Header() {
                       position: "absolute",
                       inset: 0,
                       borderRadius: "999px",
-                      background: "rgba(148, 209, 255, 0.1)",
-                      border: "1px solid rgba(148, 209, 255, 0.25)",
+                      background: "rgba(15, 23, 42, 0.05)",
+                      border: "1px solid rgba(15, 23, 42, 0.08)",
                     }}
                     transition={{ type: "spring", stiffness: 320, damping: 28 }}
                   />
@@ -139,9 +139,9 @@ export function Header() {
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
-              background: "#10131c",
+              background: "var(--color-primary)",
               color: "#ffffff",
-              border: "1px solid rgba(207, 231, 255, 0.12)",
+              border: "1px solid var(--color-primary)",
               borderRadius: "10px",
               padding: "10px 22px",
               fontSize: "14px",
@@ -151,19 +151,21 @@ export function Header() {
               transition: "all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1)",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = "#94d1ff";
-              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 15px rgba(148, 209, 255, 0.2)";
+              (e.currentTarget as HTMLAnchorElement).style.background = "#1e293b";
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = "#1e293b";
+              (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 4px 12px rgba(15, 23, 42, 0.15)";
               (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-1px)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(207, 231, 255, 0.12)";
+              (e.currentTarget as HTMLAnchorElement).style.background = "var(--color-primary)";
+              (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--color-primary)";
               (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
               (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
             }}
           >
             <svg
               className="animate-sparkle"
-              style={{ marginRight: "8px", color: "#94d1ff" }}
+              style={{ marginRight: "8px", color: "#f59e0b" }}
               width="14"
               height="14"
               viewBox="0 0 24 24"
@@ -185,7 +187,7 @@ export function Header() {
           style={{
             background: "none",
             border: "none",
-            color: "#ffffff",
+            color: "var(--color-text)",
             cursor: "pointer",
             padding: "8px",
           }}
@@ -209,9 +211,9 @@ export function Header() {
               top: "72px",
               left: 0,
               width: "100%",
-              background: "rgba(4, 7, 13, 0.98)",
+              background: "rgba(255, 255, 255, 0.98)",
               backdropFilter: "blur(24px)",
-              borderBottom: "1px solid rgba(207, 231, 255, 0.06)",
+              borderBottom: "1px solid var(--color-border)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -228,13 +230,13 @@ export function Header() {
                 style={{
                   fontSize: "18px",
                   fontWeight: 500,
-                  color: "#b8c7d9",
+                  color: "var(--color-text-muted)",
                   textDecoration: "none",
                   fontFamily: "'Inter', sans-serif",
                   transition: "color 0.2s ease",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#ffffff")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#b8c7d9")}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-text)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-muted)")}
               >
                 {item.label}
               </a>
@@ -248,7 +250,7 @@ export function Header() {
                 alignItems: "center",
                 justifyContent: "center",
                 background: "var(--color-primary)",
-                color: "#04070d",
+                color: "#ffffff",
                 borderRadius: "10px",
                 padding: "12px 32px",
                 fontSize: "15px",
@@ -258,7 +260,7 @@ export function Header() {
                 width: "100%",
                 maxWidth: "280px",
                 textAlign: "center",
-                boxShadow: "0 4px 14px rgba(148, 209, 255, 0.25)",
+                boxShadow: "0 4px 14px rgba(15, 23, 42, 0.15)",
               }}
             >
               Talk to Us

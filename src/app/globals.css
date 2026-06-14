@@ -6,30 +6,30 @@
    ═══════════════════════════════════════════ */
 
 :root {
-  /* ── Core Palette ── */
-  --color-bg: #04070d;
-  --color-bg-secondary: #10131c;
-  --color-surface: #04070d;
-  --color-surface-raised: #10131c;
-  --color-surface-card: #10131c;
+  /* ── Core Palette (Light Theme) ── */
+  --color-bg: #F8F9FA;
+  --color-bg-secondary: #FFFFFF;
+  --color-surface: #F8F9FA;
+  --color-surface-raised: #FFFFFF;
+  --color-surface-card: #FFFFFF;
 
   /* ── Accents ── */
-  --color-primary: #94d1ff;
-  --color-primary-glow: rgba(148, 209, 255, 0.25);
-  --color-primary-subtle: rgba(148, 209, 255, 0.1);
-  --color-secondary: #b8c7d9;
-  --color-secondary-glow: rgba(184, 199, 217, 0.15);
+  --color-primary: #0F172A;
+  --color-primary-glow: rgba(15, 23, 42, 0.08);
+  --color-primary-subtle: rgba(15, 23, 42, 0.03);
+  --color-secondary: #475467;
+  --color-secondary-glow: rgba(71, 84, 103, 0.08);
 
   /* ── Text ── */
-  --color-text: #ffffff;
-  --color-text-secondary: #d5dbe6;
-  --color-text-muted: #b8c7d9;
-  --color-text-dim: #999999;
+  --color-text: #101828;
+  --color-text-secondary: #344054;
+  --color-text-muted: #475467;
+  --color-text-dim: #667085;
 
   /* ── Borders ── */
-  --color-border: #10131c;
-  --color-border-light: rgba(207, 231, 255, 0.08);
-  --color-border-accent: rgba(148, 209, 255, 0.25);
+  --color-border: #E4E7EC;
+  --color-border-light: #E4E7EC;
+  --color-border-accent: #D0D5DD;
 
   /* ── Spacing Scale (Base: 12px) ── */
   --space-1: 12px;
@@ -45,14 +45,14 @@
   --radius-card-large: 60px;
   --radius-pill: 100px;
 
-  /* ── Chromatic Shadows (Landio) ── */
-  --shadow-chromatic-1: rgba(207, 231, 255, 0.2) 0px 1px 1px 0px inset;
-  --shadow-chromatic-2: rgba(207, 231, 255, 0.2) 0px 2px 1px 0px inset;
-  --shadow-chromatic-3: rgba(207, 231, 255, 0.15) 0px 2px 1px 0px inset;
-  --shadow-chromatic-4: rgba(207, 231, 255, 0.2) 0px 2px 1px 0px inset, rgba(207, 231, 255, 0.1) 0px -1px 1px 0px inset;
-  --shadow-chromatic-5: rgba(207, 231, 255, 0.15) 0px 1px 1px 0px inset;
+  /* ── Shadows (Premium Light) ── */
+  --shadow-chromatic-1: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow-chromatic-2: 0 2px 4px rgba(16, 24, 40, 0.06);
+  --shadow-chromatic-3: 0 4px 8px rgba(16, 24, 40, 0.08);
+  --shadow-chromatic-4: 0 1px 3px rgba(16, 24, 40, 0.1), 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-chromatic-5: 0 8px 16px rgba(16, 24, 40, 0.08);
 
-  --shadow-card-elevated: var(--shadow-chromatic-4), 0 12px 36px -12px rgba(0, 0, 0, 0.7);
+  --shadow-card-elevated: 0 12px 24px -4px rgba(16, 24, 40, 0.08), 0 4px 12px -2px rgba(16, 24, 40, 0.04);
 }
 
 @theme inline {
@@ -62,8 +62,13 @@
   --font-serif: "Playfair Display", serif;
 }
 
+
 /* ─── Base Reset & Layout ─── */
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -95,7 +100,12 @@ body {
 }
 
 /* ─── Typography ─── */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Inter", sans-serif;
   font-weight: 500;
   color: var(--color-text);
@@ -131,9 +141,9 @@ h3 {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-chromatic-4);
-  transition: border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
-              box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
-              transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   position: relative;
   overflow: hidden;
 }
@@ -210,8 +220,17 @@ h3 {
 
 /* Sparkle icon spin animation */
 @keyframes sparkle-pulse {
-  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
-  50% { transform: scale(1.15) rotate(180deg); opacity: 1; }
+
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.15) rotate(180deg);
+    opacity: 1;
+  }
 }
 
 .animate-sparkle {
@@ -219,10 +238,22 @@ h3 {
 }
 
 /* Scrollbar styling */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--color-bg); }
-::-webkit-scrollbar-thumb { background: #1a1e29; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1e29;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
 
 ::selection {
   background: var(--color-primary-glow);
@@ -239,6 +270,7 @@ h3 {
   transition: color 0.2s ease;
   width: fit-content;
 }
+
 .footer-link:hover {
   color: var(--color-primary) !important;
 }
@@ -251,17 +283,63 @@ h3 {
   font-family: "Inter", sans-serif;
   transition: color 0.2s ease;
 }
+
 .footer-cta-link:hover {
-  color: #ffffff !important;
+  color: var(--color-text) !important;
 }
 
 .footer-sub-link {
   font-size: 13px;
-  color: rgba(184, 199, 217, 0.5);
+  color: var(--color-text-dim);
   text-decoration: none;
   font-family: "Inter", sans-serif;
   transition: color 0.2s ease;
 }
+
 .footer-sub-link:hover {
-  color: #b8c7d9 !important;
+  color: var(--color-text) !important;
+}
+
+/* ─── Gradient Border Rotation Animations ── */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes gradient-rotate {
+  from {
+    --gradient-angle: 0deg;
+  }
+
+  to {
+    --gradient-angle: 360deg;
+  }
+}
+
+.gradient-border-component {
+  position: relative;
+  background-size: 100% 100%, 100% 100%;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+}
+
+.gradient-border-auto {
+  animation: gradient-rotate var(--animation-duration, 5s) linear infinite;
+}
+
+.gradient-border-hover {
+  animation: none;
+}
+
+.gradient-border-hover:hover {
+  animation: gradient-rotate var(--animation-duration, 5s) linear infinite;
+}
+
+.gradient-border-stop-hover {
+  animation: gradient-rotate var(--animation-duration, 5s) linear infinite;
+}
+
+.gradient-border-stop-hover:hover {
+  animation-play-state: paused;
 }

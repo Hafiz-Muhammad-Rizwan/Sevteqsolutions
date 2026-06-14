@@ -10,7 +10,7 @@ import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#04070d]">
+    <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text-secondary)]">
       <Header />
       <main>
         <HeroSection />

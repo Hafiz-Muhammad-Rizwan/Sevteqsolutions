@@ -2,70 +2,51 @@
 
 import { motion } from "framer-motion";
 import { capabilities } from "@/data/site";
-import { TiltCard } from "@/components/animations/TiltCard";
+import { SplineScene } from "@/components/ui/splite";
+import { ArrowRight, Smartphone, Sparkles, Globe, Server, Cloud, Terminal, Cpu } from "lucide-react";
 
-// Beautiful custom dual SVGs for the Landio-style capsule badges
-// Beautiful custom dual SVGs for the four core pillars
+// Beautiful custom dual icons for the four core pillars in light theme
 const DOUBLE_ICONS = [
-  // 1. Native & Cross-Platform Mobile Development: Smartphone | Layers
+  // 1. Native & Cross-Platform Mobile Development
   <div key="mobile" className="flex items-center gap-3 px-3 py-1.5">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
-      <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-      <line x1="12" y1="18" x2="12.01" y2="18" />
-    </svg>
-    <div className="w-[1px] h-4 bg-white/10" />
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
-      <polygon points="12 2 2 7 12 12 22 7 12 2" />
-      <polygon points="2 17 12 22 22 17" />
-      <polygon points="2 12 12 17 22 12" />
-    </svg>
+    <Smartphone size={18} className="text-[#2563eb]" />
+    <div className="w-[1px] h-4 bg-gray-200" />
+    <Server size={18} className="text-[#64748b]" />
   </div>,
 
-  // 2. Full-Stack Web Ecosystems: Globe | Server
+  // 2. Full-Stack Web Ecosystems
   <div key="web" className="flex items-center gap-3 px-3 py-1.5">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
-      <circle cx="12" cy="12" r="10" />
-      <line x1="2" y1="12" x2="22" y2="12" />
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-    </svg>
-    <div className="w-[1px] h-4 bg-white/10" />
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
-      <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
-      <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
-      <line x1="6" y1="6" x2="6.01" y2="6" />
-      <line x1="6" y1="18" x2="6.01" y2="18" />
-    </svg>
+    <Globe size={18} className="text-[#0d9488]" />
+    <div className="w-[1px] h-4 bg-gray-200" />
+    <Terminal size={18} className="text-[#64748b]" />
   </div>,
 
-  // 3. Autonomous AI Agents & Automation: Robot Face | Sparkles
+  // 3. Autonomous AI Agents & Automation
   <div key="ai" className="flex items-center gap-3 px-3 py-1.5">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
-      <rect x="3" y="11" width="18" height="10" rx="2" />
-      <circle cx="8" cy="16" r="1.5" />
-      <circle cx="16" cy="16" r="1.5" />
-      <path d="M12 6v5" />
-      <path d="M8 6h8" />
-    </svg>
-    <div className="w-[1px] h-4 bg-white/10" />
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
-      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-    </svg>
+    <Cpu size={18} className="text-[#9333ea]" />
+    <div className="w-[1px] h-4 bg-gray-200" />
+    <Sparkles size={18} className="text-[#64748b]" />
   </div>,
 
-  // 4. Cloud Architecture & DevOps Infrastructure: Cloud | Terminal
+  // 4. Cloud Architecture & DevOps Infrastructure
   <div key="devops" className="flex items-center gap-3 px-3 py-1.5">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#94d1ff]">
-      <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
-    </svg>
-    <div className="w-[1px] h-4 bg-white/10" />
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#b8c7d9]">
-      <polyline points="4 17 10 11 4 5" />
-      <line x1="12" y1="19" x2="20" y2="19" />
-    </svg>
+    <Cloud size={18} className="text-[#ea580c]" />
+    <div className="w-[1px] h-4 bg-gray-200" />
+    <Terminal size={18} className="text-[#64748b]" />
   </div>,
 ];
 
 export function CapabilitiesSection() {
+  // We'll separate the capabilities: 
+  // Mobile (0), Web (1), DevOps (3) will be span-1 cards
+  // AI Agents & Automation (2) will be a wide span-3 card with the 3D Spline scene
+  const caps = [
+    { ...capabilities[0], index: 0 },
+    { ...capabilities[1], index: 1 },
+    { ...capabilities[3], index: 3 },
+  ];
+  const aiCapability = { ...capabilities[2], index: 2 };
+
   return (
     <section
       id="services"
@@ -73,7 +54,7 @@ export function CapabilitiesSection() {
         position: "relative",
         width: "100%",
         padding: "100px 0",
-        background: "#04070d",
+        background: "var(--color-bg)",
         overflow: "hidden",
       }}
     >
@@ -85,7 +66,7 @@ export function CapabilitiesSection() {
           right: "-100px",
           width: "500px",
           height: "500px",
-          background: "radial-gradient(circle, rgba(148, 209, 255, 0.08) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(15, 23, 42, 0.02) 0%, transparent 70%)",
         }}
       />
       <div
@@ -95,7 +76,7 @@ export function CapabilitiesSection() {
           left: "-150px",
           width: "450px",
           height: "450px",
-          background: "radial-gradient(circle, rgba(148, 209, 255, 0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(15, 23, 42, 0.02) 0%, transparent 70%)",
         }}
       />
 
@@ -113,17 +94,18 @@ export function CapabilitiesSection() {
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              border: "1px solid rgba(207, 231, 255, 0.08)",
+              border: "1px solid var(--color-border)",
               borderRadius: "999px",
               padding: "6px 16px",
               fontSize: "11px",
               fontWeight: 500,
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              color: "var(--color-primary)",
-              background: "rgba(148, 209, 255, 0.08)",
+              color: "var(--color-text-secondary)",
+              background: "#ffffff",
               fontFamily: "'Inter', sans-serif",
               marginBottom: "20px",
+              boxShadow: "0 2px 6px rgba(0,0,0,0.02)"
             }}
           >
             Services
@@ -131,8 +113,8 @@ export function CapabilitiesSection() {
           <h2
             style={{
               fontSize: "clamp(2.2rem, 3.8vw, 3.2rem)",
-              fontWeight: 500,
-              color: "#ffffff",
+              fontWeight: 600,
+              color: "#101828",
               fontFamily: "'Inter', sans-serif",
               lineHeight: 1.15,
               letterSpacing: "-1.2px",
@@ -153,143 +135,231 @@ export function CapabilitiesSection() {
           </p>
         </motion.div>
 
-        {/* Cards Grid */}
+        {/* Bento Grid */}
         <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "20px",
+            gap: "24px",
           }}
           className="capabilities-grid"
         >
-          {capabilities.map((capability, index) => {
-            const bentoClass = `bento-box-${index + 1}`;
-            return (
-              <motion.div
-                key={capability.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.55, delay: index * 0.08 }}
-                className={bentoClass}
+          {/* Row 1: Mobile, Web, DevOps (span 1 each) */}
+          {caps.map((capability) => (
+            <motion.div
+              key={capability.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.55, delay: capability.index * 0.08 }}
+              className="col-span-1"
+            >
+              <article
+                style={{
+                  position: "relative",
+                  overflow: "hidden",
+                  borderRadius: "20px",
+                  border: "1px solid var(--color-border)",
+                  background: "#ffffff",
+                  padding: "48px 32px",
+                  minHeight: "340px",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  cursor: "pointer",
+                  transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
+                  boxShadow: "0 4px 12px rgba(16, 24, 40, 0.03)",
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.borderColor = "var(--color-border-accent)";
+                  el.style.boxShadow = "var(--shadow-card-elevated)";
+                  el.style.transform = "translateY(-4px)";
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.borderColor = "var(--color-border)";
+                  el.style.boxShadow = "0 4px 12px rgba(16, 24, 40, 0.03)";
+                  el.style.transform = "translateY(0)";
+                }}
               >
-                <TiltCard perspective={1500} className="h-full">
-                  <article
+                {/* Top capsule badge with double icons */}
+                <div
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "100px",
+                    background: "#f9fafb",
+                    border: "1px solid var(--color-border)",
+                    marginBottom: "28px",
+                    width: "fit-content",
+                  }}
+                >
+                  {DOUBLE_ICONS[capability.index]}
+                </div>
+
+                {/* Content */}
+                <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
+                  <h3
                     style={{
-                      position: "relative",
-                      overflow: "hidden",
-                      borderRadius: "20px",
-                      border: "1px solid rgba(207, 231, 255, 0.05)",
-                      background: "#10131c",
-                      padding: "48px 32px",
-                      minHeight: "310px",
-                      height: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      textAlign: "center",
-                      justifyContent: "space-between",
-                      cursor: "pointer",
-                      transition: "border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease",
-                      boxShadow: "var(--shadow-chromatic-4)",
-                    }}
-                    onMouseEnter={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.borderColor = "rgba(148, 209, 255, 0.25)";
-                      el.style.boxShadow = "var(--shadow-card-elevated), 0 0 25px rgba(148, 209, 255, 0.08)";
-                      el.style.transform = "translateY(-4px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.borderColor = "rgba(207, 231, 255, 0.05)";
-                      el.style.boxShadow = "var(--shadow-chromatic-4)";
-                      el.style.transform = "translateY(0)";
+                      fontSize: "20px",
+                      fontWeight: 600,
+                      color: "#101828",
+                      fontFamily: "'Inter', sans-serif",
+                      marginBottom: "12px",
+                      lineHeight: 1.3,
+                      letterSpacing: "-0.5px",
                     }}
                   >
-                    {/* Top capsule badge with double icons */}
-                    <div
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        borderRadius: "100px",
-                        background: "rgba(4, 7, 13, 0.6)",
-                        border: "1px solid rgba(207, 231, 255, 0.08)",
-                        marginBottom: "28px",
-                      }}
-                    >
-                      {DOUBLE_ICONS[index % DOUBLE_ICONS.length]}
-                    </div>
+                    {capability.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "14.5px",
+                      lineHeight: 1.6,
+                      color: "var(--color-text-muted)",
+                      fontFamily: "'Inter', sans-serif",
+                    }}
+                  >
+                    {capability.description}
+                  </p>
+                </div>
+              </article>
+            </motion.div>
+          ))}
 
-                    {/* Content */}
-                    <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                      <h3
-                        style={{
-                          fontSize: "20px",
-                          fontWeight: 500,
-                          color: "#ffffff",
-                          fontFamily: "'Inter', sans-serif",
-                          marginBottom: "12px",
-                          lineHeight: 1.3,
-                          letterSpacing: "-0.5px",
-                        }}
-                      >
-                        {capability.title}
-                      </h3>
-                      <p
-                        style={{
-                          fontSize: "14.5px",
-                          lineHeight: 1.6,
-                          color: "var(--color-text-muted)",
-                          fontFamily: "'Inter', sans-serif",
-                          maxWidth: "280px",
-                        }}
-                      >
-                        {capability.description}
-                      </p>
-                    </div>
-                  </article>
-                </TiltCard>
-              </motion.div>
-            );
-          })}
+          {/* Row 2: AI Agents & Automation (span 3) with Spline 3D Scene */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="col-span-3"
+            style={{ gridColumn: "span 3" }}
+          >
+            <article
+              style={{
+                position: "relative",
+                overflow: "hidden",
+                borderRadius: "20px",
+                border: "1px solid var(--color-border)",
+                background: "#ffffff",
+                padding: "48px",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: "40px",
+                minHeight: "440px",
+                cursor: "pointer",
+                transition: "all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)",
+                boxShadow: "0 4px 12px rgba(16, 24, 40, 0.03)",
+              }}
+              className="ai-bento-card"
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.borderColor = "var(--color-border-accent)";
+                el.style.boxShadow = "var(--shadow-card-elevated)";
+                el.style.transform = "translateY(-4px)";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.borderColor = "var(--color-border)";
+                el.style.boxShadow = "0 4px 12px rgba(16, 24, 40, 0.03)";
+                el.style.transform = "translateY(0)";
+              }}
+            >
+              {/* Left side content */}
+              <div style={{ flex: 1.2, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                {/* Top capsule badge */}
+                <div
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: "100px",
+                    background: "#f9fafb",
+                    border: "1px solid var(--color-border)",
+                    marginBottom: "28px",
+                    width: "fit-content",
+                  }}
+                >
+                  {DOUBLE_ICONS[aiCapability.index]}
+                </div>
+
+                <h3
+                  style={{
+                    fontSize: "24px",
+                    fontWeight: 600,
+                    color: "#101828",
+                    fontFamily: "'Inter', sans-serif",
+                    marginBottom: "16px",
+                    lineHeight: 1.3,
+                    letterSpacing: "-0.5px",
+                  }}
+                >
+                  {aiCapability.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "15.5px",
+                    lineHeight: 1.65,
+                    color: "var(--color-text-muted)",
+                    fontFamily: "'Inter', sans-serif",
+                    marginBottom: "24px",
+                    maxWidth: "500px"
+                  }}
+                >
+                  {aiCapability.description}
+                </p>
+
+                <div className="flex gap-4 items-center">
+                  <span className="text-sm font-semibold text-[#0F172A] flex items-center gap-1">
+                    Explore Intelligent Automation <ArrowRight size={16} />
+                  </span>
+                </div>
+              </div>
+
+              {/* Right side: 3D Robot Spline Scene (Blending into white canvas) */}
+              <div 
+                style={{ 
+                  flex: 0.8, 
+                  height: "360px", 
+                  position: "relative",
+                  borderRadius: "14px",
+                  overflow: "hidden",
+                  background: "#ffffff",
+                }}
+                className="ai-spline-container"
+              >
+                <div style={{ position: "absolute", inset: 0, zIndex: 5, pointerEvents: "none", background: "linear-gradient(to right, #ffffff 0%, transparent 10%, transparent 90%, #ffffff 100%), linear-gradient(to bottom, #ffffff 0%, transparent 10%, transparent 90%, #ffffff 100%)" }} />
+                <SplineScene 
+                  scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                  className="w-full h-full"
+                />
+              </div>
+            </article>
+          </motion.div>
         </div>
       </div>
 
       <style>{`
-        .bento-box-1 {
-          grid-column: span 2;
-        }
-        .bento-box-2 {
-          grid-column: span 1;
-        }
-        .bento-box-3 {
-          grid-column: span 1;
-        }
-        .bento-box-4 {
-          grid-column: span 2;
-        }
         @media (max-width: 960px) {
-          .capabilities-grid { grid-template-columns: 1fr 1fr !important; }
-          .bento-box-1 {
-            grid-column: span 2;
-          }
-          .bento-box-2 {
-            grid-column: span 1;
-          }
-          .bento-box-3 {
-            grid-column: span 1;
-          }
-          .bento-box-4 {
-            grid-column: span 2;
-          }
-        }
-        @media (max-width: 640px) {
           .capabilities-grid { grid-template-columns: 1fr !important; }
-          .bento-box-1, .bento-box-2, .bento-box-3, .bento-box-4 {
+          .col-span-3, .col-span-1 {
             grid-column: span 1 !important;
           }
-          article { padding: 40px 24px !important; min-height: 280px !important; }
+          .ai-bento-card {
+            flex-direction: column !important;
+            padding: 32px !important;
+            align-items: stretch !important;
+          }
+          .ai-spline-container {
+            height: 280px !important;
+            margin-top: 20px;
+          }
         }
       `}</style>
     </section>

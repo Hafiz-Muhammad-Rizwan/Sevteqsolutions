@@ -3,13 +3,20 @@
 import { motion } from "framer-motion";
 import { industries } from "@/data/site";
 import Image from "next/image";
-import { TiltCard } from "@/components/animations/TiltCard";
+import { BorderRotate } from "@/components/ui/animated-gradient-border";
 
 const INDUSTRY_IMAGES = [
   "/pexels-freestockpro-12960383.jpg",
   "/pexels-jakub-pabis-147246622-36169773.jpg",
   "/pexels-jplenio-1105379.jpg",
   "/pexels-werner-pfennig-6949525.jpg"
+];
+
+const GRADIENT_PALETTES = [
+  { primary: "#4f46e5", secondary: "#818cf8", accent: "#c7d2fe" }, // Indigo
+  { primary: "#0891b2", secondary: "#22d3ee", accent: "#cffafe" }, // Cyan
+  { primary: "#0d9488", secondary: "#2dd4bf", accent: "#ccfbf1" }, // Teal
+  { primary: "#7c3aed", secondary: "#a78bfa", accent: "#ddd6fe" }, // Purple
 ];
 
 export function IndustriesSection() {
@@ -20,7 +27,7 @@ export function IndustriesSection() {
         position: "relative",
         width: "100%",
         padding: "100px 0",
-        background: "#04070d",
+        background: "var(--color-bg)",
         overflow: "hidden",
       }}
     >
@@ -33,7 +40,7 @@ export function IndustriesSection() {
           transform: "translateX(-50%)",
           width: "600px",
           height: "300px",
-          background: "radial-gradient(circle, rgba(148, 209, 255, 0.06) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(15, 23, 42, 0.02) 0%, transparent 70%)",
         }}
       />
 
@@ -51,17 +58,18 @@ export function IndustriesSection() {
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              border: "1px solid rgba(207, 231, 255, 0.08)",
+              border: "1px solid var(--color-border)",
               borderRadius: "999px",
               padding: "6px 16px",
               fontSize: "11px",
               fontWeight: 500,
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              color: "var(--color-primary)",
-              background: "rgba(148, 209, 255, 0.08)",
+              color: "var(--color-text-secondary)",
+              background: "#ffffff",
               fontFamily: "'Inter', sans-serif",
               marginBottom: "20px",
+              boxShadow: "0 2px 6px rgba(0,0,0,0.02)"
             }}
           >
             Industries
@@ -69,8 +77,8 @@ export function IndustriesSection() {
           <h2
             style={{
               fontSize: "clamp(2.2rem, 3.8vw, 3.2rem)",
-              fontWeight: 500,
-              color: "#ffffff",
+              fontWeight: 600,
+              color: "#101828",
               fontFamily: "'Inter', sans-serif",
               lineHeight: 1.15,
               letterSpacing: "-1.2px",
@@ -93,7 +101,7 @@ export function IndustriesSection() {
 
         {/* Cards Grid */}
         <div
-          style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}
+          style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}
           className="industries-grid"
         >
           {industries.map((industry, index) => (
@@ -103,34 +111,32 @@ export function IndustriesSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="flex h-full w-full"
             >
-              <TiltCard perspective={1500} className="h-full">
+              <BorderRotate
+                animationMode="stop-rotate-on-hover"
+                animationSpeed={5}
+                gradientColors={GRADIENT_PALETTES[index % GRADIENT_PALETTES.length]}
+                backgroundColor="#ffffff"
+                borderWidth={1.5}
+                borderRadius={20}
+                className="h-full w-full shadow-sm hover:shadow-md transition-all duration-300"
+              >
                 <article
                   style={{
                     position: "relative",
                     overflow: "hidden",
-                    borderRadius: "20px",
-                    border: "1px solid rgba(207, 231, 255, 0.05)",
-                    minHeight: "340px",
+                    borderRadius: "18px", // Slightly smaller than wrapper to fit inside border
+                    minHeight: "320px",
                     height: "100%",
                     padding: "48px 36px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "flex-end",
                     cursor: "pointer",
-                    transition: "border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease",
-                    boxShadow: "var(--shadow-chromatic-4)",
+                    background: "#ffffff",
                   }}
-                  onMouseEnter={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "rgba(148, 209, 255, 0.25)";
-                    el.style.boxShadow = "var(--shadow-card-elevated), 0 0 20px rgba(148, 209, 255, 0.05)";
-                  }}
-                  onMouseLeave={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "rgba(207, 231, 255, 0.05)";
-                    el.style.boxShadow = "var(--shadow-chromatic-4)";
-                  }}
+                  className="group"
                 >
                   <Image
                     src={INDUSTRY_IMAGES[index % INDUSTRY_IMAGES.length]}
@@ -139,20 +145,20 @@ export function IndustriesSection() {
                     className="industry-img"
                     style={{
                       objectFit: "cover",
-                      opacity: 0.3,
+                      opacity: 0.12,
                       transition: "transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.35s ease",
                     }}
                   />
-                  {/* Gradient overlays */}
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, #04070d 10%, rgba(4,7,13,0.6) 60%, transparent 100%)" }} />
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(148,209,255,0.08) 0%, transparent 60%)" }} />
+                  {/* Light-theme gradient overlays */}
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, #ffffff 15%, rgba(255,255,255,0.75) 60%, transparent 100%)" }} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(15,23,42,0.02) 0%, transparent 60%)" }} />
 
                   <div style={{ position: "relative", zIndex: 10 }}>
                     <h3
                       style={{
                         fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)",
-                        fontWeight: 500,
-                        color: "#ffffff",
+                        fontWeight: 600,
+                        color: "#101828",
                         fontFamily: "'Inter', sans-serif",
                         letterSpacing: "-0.6px",
                         marginBottom: "10px",
@@ -172,7 +178,7 @@ export function IndustriesSection() {
                     </p>
                   </div>
                 </article>
-              </TiltCard>
+              </BorderRotate>
             </motion.div>
           ))}
         </div>
@@ -180,7 +186,7 @@ export function IndustriesSection() {
 
       <style>{`
         .industry-img { transition: transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.35s ease !important; }
-        article:hover .industry-img { transform: scale(1.05) !important; opacity: 0.45 !important; }
+        .group:hover .industry-img { transform: scale(1.04) !important; opacity: 0.22 !important; }
         @media (max-width: 768px) { .industries-grid { grid-template-columns: 1fr !important; } }
       `}</style>
     </section>

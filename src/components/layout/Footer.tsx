@@ -9,8 +9,8 @@ export function Footer() {
       style={{
         position: "relative",
         overflow: "hidden",
-        background: "#10131c",
-        borderTop: "1px solid rgba(207, 231, 255, 0.06)",
+        background: "var(--color-bg-secondary)",
+        borderTop: "1px solid var(--color-border)",
         paddingTop: "80px",
         paddingBottom: "40px",
       }}
@@ -23,7 +23,7 @@ export function Footer() {
           left: "25%",
           width: "500px",
           height: "300px",
-          background: "radial-gradient(circle, rgba(148, 209, 255, 0.05) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(15, 23, 42, 0.03) 0%, transparent 70%)",
         }}
       />
 
@@ -47,14 +47,14 @@ export function Footer() {
                   height: "36px",
                   borderRadius: "8px",
                   objectFit: "cover",
-                  border: "1px solid rgba(207, 231, 255, 0.15)",
+                  border: "1px solid var(--color-border)",
                 }}
               />
               <span
                 style={{
                   fontSize: "21px",
                   fontWeight: 500,
-                  color: "#ffffff",
+                  color: "var(--color-text)",
                   fontFamily: "'Inter', sans-serif",
                   letterSpacing: "-0.6px",
                 }}
@@ -81,7 +81,7 @@ export function Footer() {
               style={{
                 fontSize: "14px",
                 fontWeight: 500,
-                color: "#ffffff",
+                color: "var(--color-text)",
                 fontFamily: "'Inter', sans-serif",
                 letterSpacing: "0.04em",
                 textTransform: "uppercase",
@@ -107,7 +107,7 @@ export function Footer() {
               style={{
                 fontSize: "14px",
                 fontWeight: 500,
-                color: "#ffffff",
+                color: "var(--color-text)",
                 fontFamily: "'Inter', sans-serif",
                 letterSpacing: "0.04em",
                 textTransform: "uppercase",
@@ -149,7 +149,7 @@ export function Footer() {
         <div
           style={{
             paddingTop: "32px",
-            borderTop: "1px solid rgba(207, 231, 255, 0.06)",
+            borderTop: "1px solid var(--color-border)",
             display: "flex",
             flexWrap: "wrap",
             alignItems: "center",
@@ -157,7 +157,7 @@ export function Footer() {
             gap: "16px",
           }}
         >
-          <p style={{ fontSize: "13px", color: "rgba(184, 199, 217, 0.5)", fontFamily: "'Inter', sans-serif" }}>
+          <p style={{ fontSize: "13px", color: "var(--color-text-dim)", fontFamily: "'Inter', sans-serif" }}>
             © {year} Sevteq. All rights reserved.
           </p>
           <div style={{ display: "flex", gap: "24px" }}>
