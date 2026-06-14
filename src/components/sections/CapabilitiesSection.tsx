@@ -357,7 +357,7 @@ export function CapabilitiesSection() {
             align-items: stretch !important;
           }
           .ai-spline-container {
-            height: 280px !important;
+            height: 380px !important;
             margin-top: 20px;
           }
         }

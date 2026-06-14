@@ -224,9 +224,13 @@ export function HeroSection() {
               </div>
 
               {/* Mockup Content */}
-              <div style={{ flexGrow: 1, display: "grid", gridTemplateColumns: "60px 1fr", height: "calc(100% - 40px)" }}>
+              <div 
+                className="hero-mockup-content"
+                style={{ flexGrow: 1, display: "grid", gridTemplateColumns: "60px 1fr", height: "calc(100% - 40px)" }}
+              >
                 {/* Mockup Sidebar */}
                 <div
+                  className="hero-mockup-sidebar"
                   style={{
                     background: "#f9fafb",
                     borderRight: "1px solid var(--color-border)",
@@ -244,7 +248,10 @@ export function HeroSection() {
                 </div>
 
                 {/* Mockup Main Panel */}
-                <div style={{ padding: "24px", display: "flex", flexDirection: "column", gap: "20px", overflow: "hidden" }}>
+                <div 
+                  className="hero-mockup-panel"
+                  style={{ padding: "24px", display: "flex", flexDirection: "column", gap: "20px", overflow: "hidden" }}
+                >
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <span style={{ fontSize: "14px", fontWeight: 600, color: "#101828" }}>Platform Health</span>
                     <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "11px", color: "#12b76a", background: "#ecfdf3", padding: "2px 8px", borderRadius: "99px", fontWeight: 500 }}>
@@ -254,7 +261,10 @@ export function HeroSection() {
                   </div>
 
                   {/* Micro stats */}
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                  <div 
+                    className="hero-stats-grid"
+                    style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}
+                  >
                     <div style={{ border: "1px solid var(--color-border)", borderRadius: "10px", padding: "12px", background: "#f9fafb" }}>
                       <div style={{ fontSize: "11px", color: "#667085", marginBottom: "4px" }}>Web Performance</div>
                       <div style={{ fontSize: "20px", fontWeight: 600, color: "#101828" }}>99.8%</div>
@@ -266,19 +276,26 @@ export function HeroSection() {
                   </div>
 
                   {/* Nice chart graphic */}
-                  <div style={{ border: "1px solid var(--color-border)", borderRadius: "10px", padding: "16px", flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                  <div 
+                    className="hero-chart-container"
+                    style={{ border: "1px solid var(--color-border)", borderRadius: "10px", padding: "16px", flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}
+                  >
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
                       <span style={{ fontSize: "12px", fontWeight: 500, color: "#344054" }}>Monthly Deployments</span>
                       <span style={{ fontSize: "10px", color: "#667085" }}>Jan - Jun</span>
                     </div>
                     {/* Simulated chart bars */}
-                    <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-around", flexGrow: 1, gap: "10px", height: "80px", paddingTop: "10px" }}>
+                    <div 
+                      className="hero-chart-bars-wrapper"
+                      style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-around", flexGrow: 1, gap: "10px", height: "80px", paddingTop: "10px" }}
+                    >
                       {[25, 45, 30, 75, 55, 90].map((h, i) => (
                         <div key={i} style={{ width: "100%", position: "relative", display: "flex", flexDirection: "column", alignItems: "center" }}>
                           <motion.div
                             initial={{ height: 0 }}
                             animate={{ height: `${h}%` }}
                             transition={{ duration: 1, delay: i * 0.1 }}
+                            className="hero-chart-bar"
                             style={{
                               width: "24px",
                               background: "linear-gradient(to top, rgba(15, 23, 42, 0.01) 0%, rgba(15, 23, 42, 0.15) 100%)",
@@ -383,6 +400,40 @@ export function HeroSection() {
           }
           .hero-mobile-mockup {
             display: none !important; /* Hide mobile overlay on smaller viewports */
+          }
+        }
+        @media (max-width: 640px) {
+          .hero-mockup-content {
+            grid-template-columns: 1fr !important;
+          }
+          .hero-mockup-sidebar {
+            display: none !important;
+          }
+          .hero-mockup-panel {
+            padding: 16px !important;
+            gap: 16px !important;
+          }
+          .hero-stats-grid {
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .hero-mockup-panel {
+            padding: 12px !important;
+            gap: 12px !important;
+          }
+          .hero-stats-grid {
+            gap: 8px !important;
+          }
+          .hero-chart-container {
+            padding: 12px !important;
+          }
+          .hero-chart-bars-wrapper {
+            gap: 6px !important;
+          }
+          .hero-chart-bar {
+            width: 16px !important;
           }
         }
       `}</style>

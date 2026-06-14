@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { projectCategories } from "@/data/projects";
@@ -22,24 +22,7 @@ const FEATURED_PROJECTS = [
   },
 ];
 
-const SLIDES = [
-  { video: "/video1.mp4" },
-  { video: "/video2.mp4" }
-];
-
 export function PortfolioSection() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
-
   return (
     <section
       id="portfolio"
@@ -313,142 +296,6 @@ export function PortfolioSection() {
           </Link>
         </div>
 
-        {/* Transitioning Video Slideshow Component */}
-        <div style={{ marginTop: "100px", position: "relative", zIndex: 10 }}>
-          <div style={{ textAlign: "center", marginBottom: "32px" }}>
-            <h3 style={{ fontSize: "24px", fontWeight: 600, color: "#101828", letterSpacing: "-0.8px" }}>
-              Enterprise Systems in Action
-            </h3>
-            <p style={{ fontSize: "14.5px", color: "var(--color-text-muted)", marginTop: "6px" }}>
-              A visual glimpse into our automated high-performance execution environments
-            </p>
-          </div>
-
-          <div
-            style={{
-              position: "relative",
-              width: "100%",
-              height: "460px",
-              borderRadius: "20px",
-              border: "1px solid var(--color-border)",
-              background: "#000000",
-              overflow: "hidden",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.04)",
-            }}
-            className="video-slider-container"
-          >
-            {/* The Videos cross-fading */}
-            <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentSlide}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 1.2, ease: "easeInOut" }}
-                  style={{ position: "absolute", inset: 0 }}
-                >
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                    src={SLIDES[currentSlide].video}
-                  />
-                </motion.div>
-              </AnimatePresence>
-              {/* Overlay for subtle dark shade to keep UI clean */}
-              <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.2)", zIndex: 1 }} />
-            </div>
-
-            {/* Slide Indicators / Dots */}
-            <div style={{
-              position: "absolute",
-              bottom: "24px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              display: "flex",
-              gap: "8px",
-              zIndex: 15,
-            }}>
-              {SLIDES.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentSlide(i)}
-                  aria-label={`Slide ${i + 1}`}
-                  style={{
-                    width: i === currentSlide ? "24px" : "8px",
-                    height: "8px",
-                    borderRadius: "999px",
-                    background: i === currentSlide ? "#ffffff" : "rgba(255,255,255,0.4)",
-                    border: "none",
-                    cursor: "pointer",
-                    transition: "all 0.35s ease",
-                    padding: 0,
-                  }}
-                />
-              ))}
-            </div>
-
-            {/* Prev/Next Arrow Buttons */}
-            <div style={{
-              position: "absolute",
-              left: "24px",
-              right: "24px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              display: "flex",
-              justifyContent: "space-between",
-              zIndex: 15,
-              pointerEvents: "none",
-            }}>
-              <button
-                onClick={prevSlide}
-                aria-label="Previous slide"
-                style={{
-                  pointerEvents: "auto",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  border: "1px solid rgba(255,255,255,0.25)",
-                  background: "rgba(0,0,0,0.3)",
-                  color: "rgba(255,255,255,0.8)",
-                  cursor: "pointer",
-                  transition: "all 0.25s ease",
-                  backdropFilter: "blur(4px)",
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
-              </button>
-              <button
-                onClick={nextSlide}
-                aria-label="Next slide"
-                style={{
-                  pointerEvents: "auto",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  border: "1px solid rgba(255,255,255,0.25)",
-                  background: "rgba(0,0,0,0.3)",
-                  color: "rgba(255,255,255,0.8)",
-                  cursor: "pointer",
-                  transition: "all 0.25s ease",
-                  backdropFilter: "blur(4px)",
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
       </div>
 
       <style>{`
@@ -464,17 +311,11 @@ export function PortfolioSection() {
             grid-template-columns: 1fr 1fr !important;
             gap: 24px !important;
           }
-          .video-slider-container {
-            height: 360px !important;
-          }
         }
         @media (max-width: 640px) {
           .portfolio-grid {
             grid-template-columns: 1fr !important;
             gap: 20px !important;
-          }
-          .video-slider-container {
-            height: 280px !important;
           }
         }
       `}</style>
